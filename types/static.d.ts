@@ -30,3 +30,8 @@ declare module '*.webp' {
   const ref: string;
   export default ref;
 }
+declare module '*.mdx' {
+  const ref: string;
+  export const metadata: Map<string,any>;
+  export default ref;
+}

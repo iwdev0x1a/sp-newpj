@@ -1,4 +1,5 @@
 {
   "extends": "@snowpack/app-scripts-react",
-  "plugins": []
+  "install": ["@mdx-js/react"],
+  "plugins": [["./plugins/snowpack-plugin-mdx.js"]]
 }

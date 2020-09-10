@@ -1,8 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { MDXProvider } from '@mdx-js/react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 
-interface AppProps {}
+import MDX, { metadata } from './example.mdx';
+
+interface AppProps {
+}
 
 function App({}: AppProps) {
   return (
@@ -20,8 +25,48 @@ function App({}: AppProps) {
         >
           Learn React
         </a>
+        <div>
+          {JSON.stringify(metadata)}
+        </div>
+
+        <MDXWrapper>
+          <MDX />
+          <MDX />
+          <MDX />
+        </MDXWrapper>
       </header>
     </div>
+  );
+}
+
+function MDXWrapper({ children }) {
+  const components = {
+    pre: props => <div {...props} />,
+    code: CodeBlock,
+  };
+
+  return (
+    <MDXProvider components={components}>
+      {children}
+    </MDXProvider>
+  );
+}
+
+function CodeBlock({ children }) {
+  return (
+    <Highlight {...defaultProps} code={children} language="javascript">
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className} style={{ ...style, padding: '20px' }}>
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span key={key} {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
   );
 }
 

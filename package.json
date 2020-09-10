@@ -7,8 +7,12 @@
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@mdx-js/mdx": "^1.6.16",
+    "@mdx-js/react": "^1.6.16",
+    "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-live": "^2.2.2"
   },
   "devDependencies": {
     "@snowpack/app-scripts-react": "^1.10.0",
@@ -17,9 +21,16 @@
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
     "@types/snowpack-env": "^2.3.0",
+    "gray-matter": "^4.0.2",
     "jest": "^26.2.2",
     "prettier": "^2.0.5",
+    "rehype-docz": "^2.3.0",
+    "remark-breaks": "^2.0.0",
+    "remark-docz": "^2.1.0",
+    "remark-emoji": "^2.1.0",
+    "remark-frontmatter": "^2.0.0",
     "snowpack": "^2.10.3",
+    "stringify-object": "^3.3.0",
     "typescript": "^3.9.7"
   }
 }
